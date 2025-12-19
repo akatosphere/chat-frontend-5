@@ -72,7 +72,7 @@ export const Modal: React.FC<ModalProps> = ({
               variant="modal"
               appearance="secondary"
               label={secondButtonText}
-              onClick={() => {
+              onClick={(): void => {
                 if (onSecondButtonClick) onSecondButtonClick();
               }}
             />
@@ -83,7 +83,7 @@ export const Modal: React.FC<ModalProps> = ({
               variant="modal"
               appearance="primary"
               label={firstButtonText}
-              onClick={() => {
+              onClick={(): void => {
                 if (onFirstButtonClick) onFirstButtonClick();
               }}
             />
