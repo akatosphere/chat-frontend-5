@@ -1,5 +1,4 @@
-@use '../../../shared/styles/02_tokens' as *;
-@use '../../../shared/styles/03_mixins' as mixins;
+@use 'shared/styles/03_mixins' as mixins;
 
 .container {
   @include mixins.flex-box(column, space-between, center, 2rem);
@@ -20,14 +19,12 @@
 
 .title {
   font-size: 2.4rem;
-  margin: 0;
   margin-bottom: 0.3rem;
   color: var(--text-primary);
 }
 
 .text {
   font-size: 1.6rem;
-  margin: 0;
   margin-bottom: 13rem;
   color: var(--text-secondary);
   text-align: center;

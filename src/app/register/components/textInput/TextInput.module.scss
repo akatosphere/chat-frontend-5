@@ -1,5 +1,4 @@
-@use '../../../../shared/styles/02_tokens' as *;
-@use '../../../../shared/styles/03_mixins' as mixins;
+@use 'shared/styles/03_mixins' as mixins;
 
 .container {
   display: flex;

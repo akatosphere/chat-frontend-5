@@ -1,5 +1,4 @@
-@use '../../../shared/styles/02_tokens' as *;
-@use '../../../shared/styles/03_mixins' as mixins;
+@use 'shared/styles/03_mixins' as mixins;
 
 .container {
   @include mixins.flex-box(column);
@@ -20,11 +19,10 @@
 .arrowButton {
   width: 3.2rem;
   height: 3.2rem;
-  background: none;
   border: none;
   cursor: pointer;
 
-  background-image: url('../../../../public/images/register/leftArrow.svg');
+  background-image: url('/images/register/leftArrow.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -38,7 +36,6 @@
 
 .title {
   font-size: 2.4rem;
-  margin: 0;
   margin-bottom: 1.5rem;
   color: var(--text-primary);
 }
@@ -66,7 +63,6 @@
 .agreementText {
   font-size: 1.1rem;
   color: var(--text-secondary);
-  margin: 0;
   margin-bottom: 1rem;
 }
 
