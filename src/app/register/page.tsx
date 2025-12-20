@@ -15,7 +15,7 @@ const RegisterPage = (): JSX.Element => {
 
   const handlePhoneConfirmed = (phone: string): void => {
     setConfirmedPhone(phone);
-    console.log('Подтверждённый номер:', phone);
+    console.log('Подтверждённый номер: ', phone);
   };
   const nextStep = (): void => {
     if (step < 4) {
