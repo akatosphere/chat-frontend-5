@@ -92,7 +92,6 @@ export const route = async (req: NextRequest, path: string[]): Promise<NextRespo
       } catch (refreshError) {
         console.error('Token refresh failed:', refreshError);
 
-        // Очищаем cookies при неудачном обновлении
         const errorResponse = NextResponse.json(
           { error: 'Authentication required. Please log in again.' },
           { status: 401 },
