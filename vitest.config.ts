@@ -1,5 +1,3 @@
-/// <reference types="vitest" />
-
 // NOTE:
 // magical-svg is used ONLY for Vitest to align SVG imports
 // with Next.js (webpack + svgr). Production pipeline is untouched.
@@ -24,8 +22,9 @@ export default defineConfig({
     setupFiles: './vitest.setup.ts',
     css: true,
     include: ['**/*.test.{ts,tsx}'],
+    exclude: ['**/node_modules/**'],
     typecheck: {
-      tsconfig: './tsconfig.vitest.json',
+      tsconfig: './tsconfig.json',
     },
   },
   resolve: {
