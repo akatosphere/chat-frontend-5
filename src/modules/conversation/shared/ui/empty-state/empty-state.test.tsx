@@ -32,4 +32,22 @@ describe('ConversationEmptyState', () => {
       expect(screen.queryByRole('link')).not.toBeInTheDocument();
     });
   });
+
+  describe('noResult', () => {
+    it('показывает заголовок, подзаголовок и кнопку', () => {
+      render(<ConversationEmptyState variant="noResult" />);
+
+      expect(screen.getByText('Поиск не дал результатов')).toBeInTheDocument();
+      expect(
+        screen.getByText('По вашему запросу ничего не найдено. Измените запрос и попробуйте снова'),
+      ).toBeInTheDocument();
+    });
+
+    it('не показывает кнопку и ссылку', () => {
+      render(<ConversationEmptyState variant="noResult" />);
+
+      expect(screen.queryByRole('button')).not.toBeInTheDocument();
+      expect(screen.queryByRole('link')).not.toBeInTheDocument();
+    });
+  });
 });
