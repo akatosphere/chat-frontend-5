@@ -1,15 +1,27 @@
 import { JSX } from 'react';
+import { ImageUI } from 'shared/ui/image';
 import styles from './smileys.module.scss';
-export const Smileys = (): JSX.Element => {
+
+const emojis = ['1', '2', '3', '4', '5']; // Ваши эмодзи
+
+export const Smileys = ({ handleEmojiSelect }: { handleEmojiSelect: (emoji: string) => void }): JSX.Element => {
   return (
     <>
       <div className={styles.title}>
         <div className={styles.text}>Эмоции</div>
       </div>
       <div className={styles.smileysContainer}>
-        aaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaa aaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaa aaaa a aaaaaaaa aaaaaaa
-        aaaaaaaa a aaaaaaaa aaaaaaaaa aaaaaaaaaaaa aaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaa a
-        aaaaaaaa aaaaaaaa aaa aaaaaaaaaa aaaaaaaaaa a
+        {emojis.map((emoji) => (
+          <button key={emoji} onClick={() => handleEmojiSelect(`/images/messages-chats/smileysIcons/${emoji}.svg`)}>
+            <ImageUI
+              src={`/images/messages-chats/smileysIcons/${emoji}.svg`}
+              alt="смаил"
+              loading="eager"
+              width={32}
+              height={32}
+            />
+          </button>
+        ))}
       </div>
     </>
   );

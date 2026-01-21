@@ -1,5 +1,4 @@
 import { handlerMessagesList } from 'modules/conversation/messages-chat/lib/handler-messages-list';
-import { EmodjiBlock } from 'modules/conversation/messages-chat/ui/emodji-block/emodji-block';
 import { MessagesList } from 'modules/conversation/messages-chat/ui/messages-list/messages-list';
 import { messagesListDefault } from 'modules/conversation/messages-chat/utils/messades-placeholder';
 import { JSX, Suspense } from 'react';
@@ -19,7 +18,6 @@ export default async function MessagesPage({
   return (
     <Suspense>
       <MessagesList results={results} />
-      <EmodjiBlock />
     </Suspense>
   );
 }
