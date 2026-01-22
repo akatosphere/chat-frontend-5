@@ -1,6 +1,7 @@
 'use client';
 import { JSX, useState } from 'react';
 import { ImageUI } from 'shared/ui/image';
+import { addRecentEmodji } from '../../utils/recent-emodji-array';
 import { EmodjiBlock } from '../emodji-block/emodji-block';
 import SmailIcon from './icon/smail.svg';
 import VioletSmailIcon from './icon/violet-smail.svg';
@@ -10,13 +11,15 @@ export const MessageInput = (): JSX.Element => {
   const [message, setMessage] = useState<string>('');
   const [showEmojiPicker, setShowEmojiPicker] = useState<boolean>(false);
   const [selectedEmoji, setSelectedEmoji] = useState<string | null>(null);
+  const [recentEmoji, setRecentEmoji] = useState<string[]>([]);
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setMessage(event.target.value);
   };
   const handleEmojiSelect = (emoji: string): void => {
-    setMessage((prev) => prev);
     setSelectedEmoji(emoji);
     setShowEmojiPicker(false);
+    setRecentEmoji(addRecentEmodji(emoji));
   };
   const toggleEmojiPicker = (): void => {
     setShowEmojiPicker(!showEmojiPicker);
@@ -34,7 +37,13 @@ export const MessageInput = (): JSX.Element => {
         />
         {selectedEmoji && (
           <span className={styles.emodji}>
-            <ImageUI src={selectedEmoji} alt="смаил" loading="eager" width={32} height={32} />
+            <ImageUI
+              src={`/images/messages-chats/smileysIcons/${selectedEmoji}.svg`}
+              alt="смаил"
+              loading="eager"
+              width={32}
+              height={32}
+            />
           </span>
         )}
       </form>
@@ -42,7 +51,7 @@ export const MessageInput = (): JSX.Element => {
         <button onMouseEnter={toggleEmojiPicker}>{showEmojiPicker ? <VioletSmailIcon /> : <SmailIcon />}</button>
       </span>
       <div onMouseLeave={toggleEmojiPicker}>
-        {showEmojiPicker && <EmodjiBlock handleEmojiSelect={handleEmojiSelect} />}
+        {showEmojiPicker && <EmodjiBlock handleEmojiSelect={handleEmojiSelect} recentEmoji={recentEmoji} />}
       </div>
     </div>
   );

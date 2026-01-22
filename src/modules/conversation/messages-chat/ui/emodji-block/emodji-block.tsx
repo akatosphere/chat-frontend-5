@@ -5,14 +5,31 @@ import { MessageField } from './message-field/message-field';
 import { RecentEmodji } from './recent-emodji/recent-emodji';
 import { Smileys } from './smileys/smileys';
 
-export const EmodjiBlock = ({ handleEmojiSelect }: { handleEmojiSelect: (emoji: string) => void }): JSX.Element => {
-  return (
-    <div className={styles.wrapper}>
-      <div className={styles.containerScroll}>
-        <RecentEmodji />
-        <Smileys handleEmojiSelect={handleEmojiSelect} />
+export const EmodjiBlock = ({
+  handleEmojiSelect,
+  recentEmoji,
+}: {
+  handleEmojiSelect: (emoji: string) => void;
+  recentEmoji: string[];
+}): JSX.Element => {
+  if (recentEmoji.length) {
+    return (
+      <div className={styles.wrapper}>
+        <div className={styles.containerScroll}>
+          <RecentEmodji recentEmoji={recentEmoji} handleEmojiSelect={handleEmojiSelect} />
+          <Smileys handleEmojiSelect={handleEmojiSelect} />
+        </div>
+        <MessageField isRecentEmoji={true} />
       </div>
-      <MessageField />
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className={styles.wrapper}>
+        <div className={styles.containerScroll}>
+          <Smileys handleEmojiSelect={handleEmojiSelect} />
+        </div>
+        <MessageField isRecentEmoji={false} />
+      </div>
+    );
+  }
 };

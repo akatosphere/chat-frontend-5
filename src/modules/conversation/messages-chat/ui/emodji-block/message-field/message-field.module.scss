@@ -1,6 +1,6 @@
 @use 'shared/styles/03_mixins' as mixins;
 .wrapper {
-  @include mixins.flex-box($gap: 1.8rem);
+  @include mixins.flex-box($justify: space-between, $gap: 1.8rem);
   width: 100%;
   height: 8.4rem;
   border-bottom-right-radius: 0.8rem;

@@ -12,7 +12,7 @@ export const Smileys = ({ handleEmojiSelect }: { handleEmojiSelect: (emoji: stri
       <div className={styles.smileysContainer}>
         {emojisArray(152).map((emoji, index) => (
           <div key={index} className={styles.emodji}>
-            <button onClick={() => handleEmojiSelect(`/images/messages-chats/smileysIcons/${emoji}.svg`)}>
+            <button onClick={() => handleEmojiSelect(emoji)}>
               <ImageUI
                 src={`/images/messages-chats/smileysIcons/${emoji}.svg`}
                 alt="смаил"
