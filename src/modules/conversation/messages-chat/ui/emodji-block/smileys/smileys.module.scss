@@ -27,5 +27,10 @@
   @include mixins.flex-box($justify: start, $align: start, $gap: 0.8rem, $wrap: wrap);
   width: 100%;
   height: 30rem;
-  padding: 0 2rem;
+  padding: 0 1.55rem;
+}
+.emodji {
+  @include mixins.flex-box();
+  width: auto;
+  height: auto;
 }
