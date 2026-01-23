@@ -1,10 +1,12 @@
 const maxSize = 11;
-const array: string[] = [];
+let array: string[] = [];
 
 export const addRecentEmodji = (newElement: string): string[] => {
   array.unshift(newElement);
-  if (array.length > maxSize) {
-    array.splice(array.length - 1, array.length - maxSize);
+  const uniqueArray = [...new Set(array)];
+  if (uniqueArray.length > maxSize) {
+    uniqueArray.splice(uniqueArray.length - 1, uniqueArray.length - maxSize);
   }
-  return array;
+  array = [...uniqueArray];
+  return uniqueArray;
 };
